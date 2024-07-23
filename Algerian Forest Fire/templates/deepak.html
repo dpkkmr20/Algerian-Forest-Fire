@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FWI Prediction</title>
+    <link rel="stylesheet" href="deepakstyle.css">
+</head>
+<body>
+    <div class="project-container">
+        <h1 class="heading">FWI Prediction</h1>
+    
+         <!-- Main Input For Receiving Query to our ML -->
+        <form action="{{ url_for('predict_datapoint')}}" class="Name" method="post">
+         Temperature:<input type="text" class="box" name="Temperature" placeholder="Temperature" value="{{ Temperature }}" ,="" required="required"><br>
+         Relative Humidity:<input type="text" class="box" name="RH" placeholder="RH" required="required"><br>
+         Wind speed:<input type="text" class="box" name="Ws" placeholder="Ws" required="required"><br>
+         Rain:<input type="text" class="box" name="Rain" placeholder="Rain" required="required"><br>
+         Fine Fuel Moisture Code:<input type="text" name="FFMC" class="box" placeholder="FFMC" required="required"><br>
+         Duff Moisture Code:<input type="text" class="box" name="DMC" placeholder="DMC" required="required"><br>
+         Initial Spread Index:<input type="text" class="box" name="ISI" placeholder="ISI" required="required"><br>
+         <label for="Reigon">Reigon:</label>
+         <select name="Reigon" class="box" id="Reigon" required="required">
+             <option value="0">Bajaia</option>
+             <option value="1">Sidi Bel-Abis</option>
+         </select><br>
+ 
+    
+            <button type="submit" class="btn-pink">Predict</button>
+        </form>
+     <h2>
+        THE FWI prediction is {{result}}
+     </h2>
+    
+    </div>
+</body>
+</html>
